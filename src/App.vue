@@ -10,7 +10,7 @@
           <span aria-hidden="true"></span>
         </a>
       </div>
-      <div class="navbar-menu" id="navbar-menu" :class="{'is-active': showMobileMenu}">
+      <div class="navbar-menu" id="navbar-menu" :class="{ 'is-active': showMobileMenu }">
         <div class="navbar-end">
           <router-link to="/summer" class="navbar-item">Summer</router-link>
           <router-link to="/winter" class="navbar-item">Winter</router-link>
@@ -29,7 +29,7 @@
       </div>
     </nav>
     <section class="section">
-      <router-view/>
+      <router-view />
     </section>
     <footer>
       <p class="has-text-centered">Copyright @Prodip</p>
@@ -37,36 +37,34 @@
   </div>
 </template>
 
-
 <script>
 export default {
-  data(){
-    return{
+  data() {
+    return {
       showMobileMenu: false,
       cart: {
-        items: []
-      }
-    }
+        items: [],
+      },
+    };
   },
   beforeCreate() {
-    this.$store.commit('initializeStore')
+    this.$store.commit("initializeStore");
   },
   mounted() {
-    this.cart = this.$store.state.cart
+    this.cart = this.$store.state.cart;
   },
   computed: {
     cartTotalLength() {
-      let totalLength = 0
-
+      let totalLength = 0;
       for (let i = 0; i < this.cart.items.length; i++) {
-        totalLength += this.cart.items[i].qunatity;
+        totalLength += this.cart.items[i].quantity;
       }
-      return totalLength
-    }
-  }
-}
+      return totalLength;
+    },
+  },
+};
 </script>
 
 <style lang="scss">
-@import '../node_modules/bulma';
+@import "../node_modules/bulma";
 </style>
