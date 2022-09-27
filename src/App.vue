@@ -16,7 +16,7 @@
             <form method="get" action="/search">
               <div class="field has-addons">
                 <div class="control">
-                  <input type="text" class="input" placeholder="What are you looking for?" name="query">
+                  <input type="text" class="input" placeholder="What are you looking for?" name="query" />
                 </div>
                 <div class="control">
                   <button class="button is-success">
@@ -27,8 +27,6 @@
             </form>
           </div>
         </div>
-
-
 
         <div class="navbar-end">
           <router-link to="/summer" class="navbar-item">Summer</router-link>
@@ -60,6 +58,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   data() {
     return {
@@ -71,6 +70,15 @@ export default {
   },
   beforeCreate() {
     this.$store.commit("initializeStore");
+
+    const token = this.$store.state.token
+
+    if(token) {
+      axios.defaults.headers.common['Authorization'] = "Token" + token  // Need to learn more about axios headers
+    } else {
+      axios.defaults.headers.common['Authorization'] = ""
+    }
+
   },
   mounted() {
     this.cart = this.$store.state.cart;
@@ -128,6 +136,4 @@ export default {
     height: 80px;
   }
 }
-
-
 </style>
