@@ -1,0 +1,45 @@
+.my-swslide {
+    box-shadow: 1px 1px 7px #cccccc;
+    padding: 20px;
+    margin: 20px;
+}
+
+
+
+.slider {
+    background-color: #f2f2f2;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 100px;
+}
+
+.slider > h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.slide {
+    /* display: none; */
+}
+
+.slide img {
+    width: 100%;
+}
+
+.navigation {
+    position: absolute;
+    top: 50%;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 1px solid white;
+}
+
+.next {
+    right: 0;
+}
+
+.prev {
+    left: 0;
+}
